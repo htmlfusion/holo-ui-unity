@@ -28,17 +28,18 @@ public class StereoCamera : MonoBehaviour {
 	void Update () {
 		Camera cam = GetComponent<Camera>();
 
-		var leftScreen = screenWidth / 2.0 + transform.position.x;
-		left = cam.nearClipPlane / vectorL.z * leftScreen * scalr;
+		print (transform.position.x);
+		float leftScreen = screenWidth / 2.0f + transform.position.x;
+		left = -cam.nearClipPlane / -transform.position.z * leftScreen;
 
-		float rightScreen = screenWidth / 2.0 - transform.position.x;
-		right = cam.nearClipPlane / vectorL.z * rightScreen * scalr;
+		float rightScreen = screenWidth / 2.0f - transform.position.x;
+		right = cam.nearClipPlane / -transform.position.z * rightScreen;
 		
-		var bottomScreen = - screenHeight / 2.0 - transform.position.y;
-		bottom = cam.nearClipPlane / vectorL.z * bottomScreen;
+		float bottomScreen = - screenHeight / 2.0f - transform.position.y;
+		bottom = cam.nearClipPlane / -transform.position.z * bottomScreen;
 		
-		var topScreen = screenHeight / 2.0 - transform.position.y;
-		top = cam.nearClipPlane / transform.position.z * topScreen;
+		float topScreen = screenHeight / 2.0f - transform.position.y;
+		top = cam.nearClipPlane / -transform.position.z * topScreen;
 	}
 
 	void LateUpdate() {
