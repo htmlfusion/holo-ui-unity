@@ -22,7 +22,7 @@ public class TrackingDataListener : MonoBehaviour {
 
 		if(position.Length == 7 ){
 			transform.position = new Vector3(float.Parse(position[3]), 
-			                                 float.Parse(position[4]), 
+			                                 float.Parse(position[4])+449.25f, 
 			                                 -float.Parse(position[5]));
 		}
 
